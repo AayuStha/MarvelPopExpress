@@ -59,8 +59,14 @@
     }
 
     .wrapper2 img {
-        width: 100%;
+        transform: translateY(-50px);
+        width: 80%;
     }
+
+    .featured{
+        transform: translateX(-40px);
+    }
+
 
     .parent-container {
         flex-direction: column;
@@ -68,7 +74,7 @@
     }
 
     .cards {
-        width: 80%;
+        width: 90%;
         margin: 20px 0;
     }
 

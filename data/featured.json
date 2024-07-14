@@ -7,13 +7,13 @@
 },
 {
     "image": "/images/Spiderman.png",
-    "title": "Marvel: Spider-Man: Far From Home",
+    "title": "Spider-Man: Far From Home",
     "price": 9.99,
     "rating": 3.5
 },
 {
     "image": "images/Captain.png",
-    "title": "Marvel: Captain America: Civil-War",
+    "title": "Captain America: Civil-War",
     "price": 9.99,
     "rating": 4.5
 },
@@ -25,31 +25,31 @@
 },
 {
     "image": "images/Hulk.png",
-    "title": "Marvel: Hulk: Age of Ultron",
+    "title": "Hulk: Age of Ultron",
     "price": 9.99,
     "rating": 4.5
 },
 {
     "image": "images/Surtur.png",
-    "title": "Marvel: Surter: Thor-Ragnarok",
+    "title": "Surter: Thor-Ragnarok",
     "price": 9.99,
     "rating": 4.5
 },
 {
     "image": "images/Panther.png",
-    "title": "Marvel: Black Panther: Black-Panther",
+    "title": "Black Panther: Black-Panther",
     "price": 9.99,
     "rating": 4.5
 },
 {
     "image": "images/Groot.png",
-    "title": "Groot: Guardians of the Galaxy Holiday Special",
+    "title": "Groot: GOTG Holiday Special",
     "price": 9.99,
     "rating": 4.5
 },
 {
     "image": "images/Thor.png",
-    "title": "Marvel: Thor: Thor-Ragnarok",
+    "title": "Thor: Thor-Ragnarok",
     "price": 9.99,
     "rating": 4.5
 }
