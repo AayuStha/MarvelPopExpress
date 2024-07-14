@@ -1,0 +1,144 @@
+/* Media Queries for Responsiveness */
+
+/* For tablets and below */
+@media (max-width: 768px) {
+    body{
+        margin-left: 50px;
+    }
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header > a {
+        margin-left: 80px;
+        font-size: 60px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 20px;
+        margin-top: 40px;
+        
+    }
+
+    .socials {
+        margin-right: 20px;
+        margin-top: 20px;
+        margin: 20px 20px 0 110px;
+    }
+
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapper1, .wrapper2 {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .wrapper1 {
+        order: 1;
+    }
+
+    .wrapper2 {
+        order: 2;
+    }
+
+    .wrapper1 h1 {
+        font-size: 40px;
+        
+    }
+
+    .wrapper1 p {
+        font-size: 26px;
+        margin-top: 20px;
+    }
+
+    .wrapper2 img {
+        width: 100%;
+    }
+
+    .parent-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards {
+        width: 80%;
+        margin: 20px 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer > div {
+        margin: 10px 0;
+    }
+
+    .card {
+        width: 80%;
+        margin: 20px 0;
+    }
+
+    .copyright {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .header > a {
+        font-size: 18px;
+    }
+
+    nav ul a {
+        font-size: 16px;
+    }
+
+    .wrapper1 h1 {
+        font-size: 30px;
+    }
+
+    .wrapper1 p {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 15px;
+    }
+
+    .featured h2 {
+        font-size: 20px;
+    }
+
+    .cards {
+        width: 100%;
+    }
+
+    .card__title {
+        font-size: 20px;
+    }
+
+    .card__content {
+        font-size: 12px;
+    }
+
+    .card__form input {
+        padding: 0.5em;
+    }
+
+    .card__form button {
+        padding: 0.6em;
+    }
+
+    .copyright h4 {
+        font-size: 20px;
+    }
+}
