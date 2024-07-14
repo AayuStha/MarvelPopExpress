@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <a href="/"><b>MarvelPopExpress</b></a>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="socials">
+            <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    <div class="main-container">
+        <div class="wrapper1">
+            <h1>Heros POP, <br> Collect, Marvel On</h1>
+
+            <p>Explore and collect iconic Marvel heroes in vibrant Funko Pop <br> figures on our specialized platform.</p>
+            
+            <button>
+                <span class="button_top"> Browse <i class="fa-solid fa-arrow-right"></i> </span>
+            </button>
+        </div>
+        <div class="wrapper2">
+            <img src="/images/main.png" alt="">
+        </div>
+    </div>
+    
+    <div class="featured">
+        <h2>Featured Items</h2>
+        <div class="parent-container">
+        <% featuredItems.forEach(function(item) { %>
+            <div class="cards">
+                <img src="<%= item.image %>" alt="">
+                <hr>
+                <p><%= item.title %></p>
+                <p>$<%= item.price %></p>
+                <div class="rating">
+                    <% for(let i = 0; i < Math.floor(item.rating); i++) { %>
+                        <i class="fa-solid fa-star"></i>
+                    <% } %>
+                    <% if(item.rating % 1 !== 0) { %>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                    <% } %>
+                    <% for(let i = Math.ceil(item.rating); i < 5; i++) { %>
+                        <i class="fa-regular fa-star"></i>
+                    <% } %>
+                </div>
+                <button class="CartBtn">
+                    <span class="IconContainer"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)" class="cart"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg>
+                    </span>
+                    <p class="text">Add to Cart</p>
+                </button>
+            </div>
+        <% }); %>
+    </div>
+    </div>
+    <hr>
+    <div class="footer">
+        <div class="customer-care">
+            <h2>Customer Care</h2>
+            <ul>
+                <li><a href="help-center.html">Help Center</a></li>
+                <li><a href="how-to.html">How to</a></li>
+                <li><a href="returns-refunds.html">Returns & Refunds</a></li>
+                <li><a href="contact-us.html">Contact us</a></li>
+            </ul>
+            <img src="/images/store.png" alt="Playstore and appstore">
+        </div>
+
+        <div class="about">
+            <h2>About MarvelPop</h2>
+            <ul>
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="locations.html">Locations</a></li>
+                <li><a href="investors.html">Investors</a></li>
+                <li><a href="store-locator.html">Store Locator</a></li>
+                <li><a href="careers.html">Careers</a></li>
+            </ul>
+        </div>
+        
+        <div class="connect-with-us">
+            <h2>Connect With us</h2>
+            <ul>
+                <li><a href="contact-us.html">Contact us</a></li>
+                <li><a href="https://www.instagram.com">Instagram</a></li>
+                <li><a href="https://www.facebook.com">Facebook</a></li>
+                <li><a href="https://www.youtube.com">Youtube</a></li>
+                <li><a href="https://www.twitter.com">Twitter</a></li>
+                <li><a href="https://www.tiktok.com">TikTok</a></li>
+                <li><a href="marvelpop-app.html">MarvelPop App</a></li>
+            </ul>
+        </div>
+        <div class="card">
+            <span class="card__title">MarvelPop Newsletter</span>
+            <p class="card__content">Join our mailing list and be the first to hear about new releases, upcoming events, and more!</p>
+            <div class="card__form">
+                <input placeholder="Your Email" type="text">
+                <button class="sign-up"> Sign up</button>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <h4><a href="/">MarvelPopExpress</a></h4><br>
+        <h5>Heros POP, Collect, Marvel On</h5><br>
+        <h6>&copy; <b>2024</b> MarvelPopExpress. <b>All Rights Reserved</b></h6>
+    </div>
+</body>
+</html>
