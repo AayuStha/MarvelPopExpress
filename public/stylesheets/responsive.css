@@ -103,7 +103,6 @@
 @media (max-width: 480px) {
     body{
         overflow-x: hidden;
-        margin-left: 40px;
         transform: translateX(-18px);
 
     }
