@@ -3,7 +3,8 @@
 /* For tablets and below */
 @media (max-width: 768px) {
     body{
-        margin-left: 50px;
+        margin-left: 30px;
+        overflow-x:  hidden;
     }
     .header {
         flex-direction: column;
@@ -11,7 +12,7 @@
     }
 
     .header > a {
-        margin-left: 80px;
+        margin-left: 60px;
         font-size: 60px;
     }
 
@@ -100,8 +101,14 @@
 
 /* For mobile devices */
 @media (max-width: 480px) {
+    body{
+        overflow-x: hidden;
+        margin-left: 40px;
+        transform: translateX(-18px);
+
+    }
     .header > a {
-        font-size: 18px;
+        font-size: 25px;
     }
 
     nav ul a {
@@ -114,6 +121,9 @@
 
     .wrapper1 p {
         font-size: 14px;
+    }
+    .socials{
+        margin-left: 120px;
     }
 
     button {
