@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <div class="header">
@@ -29,8 +30,8 @@
     <br>
     <hr>
 
-    <div class="main-container">
-        <div class="wrapper1">
+    <div class="main-container" >
+        <div class="wrapper1" data-aos="fade-up">
             <h1>Heros POP, <br> Collect, Marvel On</h1>
 
             <p>Explore and collect iconic Marvel heroes in vibrant Funko Pop <br> figures on our specialized platform.</p>
@@ -39,7 +40,7 @@
                 <span class="button_top"> Browse <i class="fa-solid fa-arrow-right"></i> </span>
             </button>
         </div>
-        <div class="wrapper2">
+        <div class="wrapper2" data-aos="fade-up">
             <img src="/images/main.png" alt="">
         </div>
     </div>
@@ -48,7 +49,7 @@
         <h2>Featured Items</h2>
         <div class="parent-container">
         <% featuredItems.forEach(function(item) { %>
-            <div class="cards">
+            <div class="cards" data-aos="fade-up">
                 <img src="<%= item.image %>" alt="">
                 <hr>
                 <p><%= item.title %></p>
@@ -74,6 +75,30 @@
         <% }); %>
     </div>
     </div>
+
+    <div class="exclusive-collections">
+        <h2>Marvelous reviews from our customers.</h2>
+        <div class="reviews">
+            <!-- <div class="review-card">
+                <img src="/images/wanda.jpg" alt="">
+                <h3>WANDA MAXIMOFF</h3>
+                <p>“It's all Wanda-ful here! The variety and quality of these Funko Pops are simply magical.”</p>
+            </div> -->
+            <div class="reviews">
+                <% reviews.forEach(review => { %>
+                    
+                  <div class="review-card" data-aos="fade-up">
+                    <img src="<%= review.imageUrl %>" alt="<%= review.name %>">
+                    <h3><%= review.name %></h3>
+                    <p><%= review.text %></p>
+                  </div>
+                <% }); %>
+              </div>
+        </div>
+    </div>
+
+
+
     <hr>
     <div class="footer">
         <div class="customer-care">
@@ -125,5 +150,9 @@
         <h5>Heros POP, Collect, Marvel On</h5><br>
         <h6>&copy; <b>2024</b> MarvelPopExpress. <b>All Rights Reserved</b></h6>
     </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>

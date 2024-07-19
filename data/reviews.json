@@ -1,0 +1,32 @@
+[
+    {
+        "name": "WANDA MAXIMOFF",
+        "imageUrl": "/images/Wanda.jpg",
+        "text": "“It’s all Wanda-ful here! The variety and quality of these Funko Pops are simply magical.”"
+      },
+      {
+        "name": "TONY STARK",
+        "imageUrl": "/images/Tony.jpg",
+        "text": "“It’s all Stark-tacular here! The quality and detail of these Funko Pops are simply genius-level.”"
+      },
+      {
+        "name": "THOR ODINSON",
+        "imageUrl": "/images/Thor.jpg",
+        "text": "“Truly thunderous! These Funko Pops wield the power of Asgard, a worthy addition.”"
+      },
+      {
+        "name": "THE COLLECTOR",
+        "imageUrl": "/images/Collector.jpg",
+        "text": "“A cosmic collection! Each Funko Pop is a universe of detail, curated for the most discerning of collectors.”"
+      },
+      {
+        "name": "DR. STRANGE",
+        "imageUrl": "/images/Strange.jpg",
+        "text": "“A mystic collection! Each piece is a spellbinding capture of the Sorcerer Supreme’s essence.”"
+      },
+      {
+        "name": "LOKI",
+        "imageUrl": "/images/Loki.jpeg",
+        "text": "“Mischief managed! These Funko Pops are as cunning and detailed as the God of Mischief himself.”"
+      }
+]

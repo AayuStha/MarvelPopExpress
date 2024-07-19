@@ -255,14 +255,67 @@ button:active .button_top {
     transition-duration: .5s;
   }
   
-  .CartBtn:active {
-    transform: scale(0.95);
-    transition-duration: .5s;
-  }
+.CartBtn:active {
+transform: scale(0.95);
+transition-duration: .5s;
+}
 
+.exclusive-collections{
+    width: 900px;
+    height: auto;
+    padding: 50px;
+    margin-left: 270px;
+    margin-bottom: 40px;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.15);
+}
 
+.exclusive-collections h2{
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    transform: translateY(-20px);
+}
 
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
 
+.review-card {
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+    border: 0.6px solid black;
+    background-color: #F39797;
+    border-radius: 10%;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+    flex: 0 0 auto; /* Prevents the card from growing or shrinking */
+}
+
+.review-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    object-position: center; 
+    border:1px solid #fff;
+    margin-left: 70px;
+    margin-top: 15px;
+}
+.review-card h3{
+    font-size: 16px;
+}
+.review-card p{
+    font-size: 14px;
+    font-style: italic;
+}
+
+.review-card h3, .review-card p {
+    text-align: center; 
+    margin: 20px 0;
+}
 
 
 
