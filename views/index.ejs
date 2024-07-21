@@ -28,7 +28,7 @@
         </div>
     </div>
     <br>
-    <hr>
+    <hr id="hr">
 
     <div class="main-container" >
         <div class="wrapper1" data-aos="fade-up">
@@ -77,13 +77,18 @@
     </div>
 
     <div class="exclusive-collections">
+        <div class="what-if">
+            <img src="/images/what-if.png">
+            <img class="what-if-logo" src="/images/EXCLUSIVE.png">
+            <p>
+                <b>Unlock the Marvel Multiverse: <br>Grab Your What-If Funko Pop Before It’s Gone!</b>
+            </p>
+            <a href="">Shop Collection</a>
+        </div>
+    </div>
+
+    <div class="review-collections">
         <h2>Marvelous reviews from our customers.</h2>
-        <div class="reviews">
-            <!-- <div class="review-card">
-                <img src="/images/wanda.jpg" alt="">
-                <h3>WANDA MAXIMOFF</h3>
-                <p>“It's all Wanda-ful here! The variety and quality of these Funko Pops are simply magical.”</p>
-            </div> -->
             <div class="reviews">
                 <% reviews.forEach(review => { %>
                     
@@ -94,7 +99,6 @@
                   </div>
                 <% }); %>
               </div>
-        </div>
     </div>
 
 

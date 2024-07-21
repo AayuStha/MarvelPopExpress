@@ -1,8 +1,10 @@
 const express = require('express');
+const http = require('http');
 require('dotenv').config();
 const path = require('path');
 
 const app = express();
+const server = http.createServer(app);
 const PORT = process.env.PORT;
 const featuredItems = require('./data/featured.json');
 const reviews = require('./data/reviews.json');
@@ -15,7 +17,7 @@ app.get("/", (req, res) => {
     res.render('index', { featuredItems , reviews});
 });
 
-app.listen(PORT, (err) => {
+server.listen(PORT, (err) => {
     if (err)
         console.error(`Error starting server on port ${PORT}`, err);
     else 
