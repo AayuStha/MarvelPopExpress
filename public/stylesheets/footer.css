@@ -1,0 +1,137 @@
+/* Responsive Styles for Footer */
+@media (max-width: 1200px) {
+    .footer {
+        margin-left: 0; /* Adjust margin for medium screens */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .footer > div {
+        min-width: 120px; /* Adjust minimum width */
+    }
+
+    .customer-care img {
+        width: 200px; /* Adjust image size */
+        margin-top: 20px; /* Reduce margin */
+        transform: translateX(0); /* Reset transform */
+    }
+
+    .card {
+        width: 220px; /* Adjust card width */
+        height: auto; /* Let height adjust automatically */
+        margin-right: 0; /* Reset margin-right */
+        margin-top: 20px; /* Adjust margin-top */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column; /* Stack footer sections vertically */
+        align-items: center; /* Center align items */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .footer > div {
+        min-width: 100%; /* Full width for smaller screens */
+        text-align: center; /* Center text */
+    }
+
+    .customer-care img {
+        width: 180px; /* Further reduce image size */
+        margin-top: 10px; /* Further reduce margin */
+    }
+
+    .card {
+        width: 100%; /* Full width for smaller screens */
+        margin-right: 0; /* Reset margin-right */
+    }
+
+    .card__title {
+        font-size: 20px; /* Reduce font size */
+        margin-top: 20px; /* Reduce margin-top */
+    }
+
+    .card__content {
+        font-size: 12px; /* Reduce font size */
+    }
+
+    .card__form input {
+        padding: 0.5em; /* Reduce padding */
+    }
+
+    .card__form button {
+        padding: 0.5em; /* Reduce padding */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .copyright {
+        margin-left: 0; /* Reset margin-left */
+        text-align: center; /* Center align text */
+        transform: translateY(0); /* Reset transform */
+    }
+
+    .copyright h4 {
+        font-size: 24px; /* Reduce font size */
+    }
+}
+
+@media (max-width: 490px) {
+    body{
+        margin-left: 10vw;
+    }
+    .footer{
+        display: block;
+        height: 280px;
+    }
+    .footer > div {
+        
+        padding: 10px 5px; /* Reduce padding */
+    }
+
+    .customer-care img {
+        width: 150px; /* Further reduce image size */
+    }
+
+    .card {
+        width: 100%; /* Full width for smallest screens */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .card__title {
+        font-size: 18px; /* Reduce font size */
+    }
+
+    .card__content {
+        font-size: 11px; /* Reduce font size */
+    }
+
+    .card__form input {
+        padding: 0.4em; /* Reduce padding */
+    }
+
+    .card__form button {
+        padding: 0.4em; /* Reduce padding */
+        font-size: 12px; /* Adjust font size */
+    }
+
+    .social-links, .social-links2{
+        margin-left: 30vw;
+    }
+    .connect-with-us img{
+        margin-left: 23vw;
+
+    }
+
+    .copyright{
+        transform: translateY(85vh);
+        margin-bottom: 20px;
+    }
+
+    .copyright h4 {
+        font-size: 20px; /* Reduce font size */
+    }
+
+    .copyright h5,
+    .copyright h6 {
+        font-size: 14px; /* Reduce font size */
+    }
+}
