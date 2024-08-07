@@ -65,7 +65,83 @@
     .featured{
         transform: translateX(-40px);
     }
+    .what-if {
+        width: 100%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .what-if img {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+    }
+    .what-if-logo {
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+    .what-if p {
+        position: static;
+        width: 100%;
+        font-size: 16px;
+        transform: none;
+        margin: 20px 0;
+        text-align: center;
+    }
+    .what-if a {
+        position: static;
+        margin: 20px 0;
+        display: block;
+        text-align: center;
+    }
+    .review-collections {
+        width: 100%;
+        padding: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .reviews {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .review-card {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+    .review-card img {
+        width: 80px;
+        height: 80px;
+        margin: 10px auto;
+    }
 
+    .about-us, .mission {
+        flex-direction: column;
+        margin: 30px;
+    }
+    .about-text, .mission-text {
+        width: 90%;
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 16px; /* Adjust font size if needed */
+    }
+    .avengers-logo {
+        width: 180px;
+        height: 180px;
+        margin-left: 0;
+    }
+    .marvel-group {
+        width: 80vw;
+        height: auto;
+        margin: 2vw 2vw 0 2vw;
+    }
 
     .parent-container {
         flex-direction: column;
@@ -129,6 +205,74 @@
 
     .featured h2 {
         font-size: 20px;
+    }
+
+    .what-if {
+        padding: 30px;
+        width: 79% !important;
+        margin-right: 20px !important;
+        margin-left: 10px !important;
+
+    }
+    .what-if img {
+        max-width: 500px !important;
+        max-height: 270px !important;
+        margin-left: 30px !important;
+    }
+    .what-if-logo {
+        max-width: 180px;
+        margin-top: 10px;
+        transform: translateX(10vw) !important;
+    }
+    .what-if p {
+        font-size: 18px !important;
+        transform: translateY(-5vw) !important;
+    }
+    .what-if a {
+        margin: 0 40px 40px 50px !important;
+        padding: 10px;
+        transform: translateY(3vw) !important;
+    }
+    .review-collections{
+        max-width: 84%;
+        margin-right: 10px !important;
+        margin-left: 10px !important;
+    }
+    .review-card {
+        max-width: 80%;
+        margin-left: 20px !important;
+    }
+    .review-card img {
+        width: 80px;
+        height: 80px;
+        margin: 10px 90px;
+    }
+
+    .about-us, .mission {
+        flex-direction: column;
+        margin: 20px;
+    }
+    .about-text {
+        width: 300px !important;
+        margin: 50px 70px !important;
+        font-size: 14px; 
+    }
+    .mission-text{
+        width: 300px !important;
+        margin: 40vh 70px 0 70px !important;
+        font-size: 14px; 
+    }
+    .avengers-logo {
+        width: 150px;
+        height: 150px;
+        margin-left: -20px !important;
+        margin-top: -40px !important;
+    }
+    .marvel-group {
+        width: 72vw !important;
+        height: 40vw !important;
+        margin: 10vw 1vw 0 2vw !important;
+        transform: translateY(-60vh);
     }
 
     .cards {
@@ -210,6 +354,7 @@
     
         font-size: 12px;
     }
+    
 
   }
 

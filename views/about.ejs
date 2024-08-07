@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MarvelPop - Home</title>
+    <title>MarvelPop - About</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/responsive.css">
+    <link rel="stylesheet" href="/stylesheets/about.css">
     <link rel="stylesheet" href="/stylesheets/contact.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -32,77 +34,25 @@
     <br>
     <hr id="hr">
 
-    <div class="main-container" >
-        <div class="wrapper1" data-aos="fade-up">
-            <h1>Heros POP, <br> Collect, Marvel On</h1>
-
-            <p>Explore and collect iconic Marvel heroes in vibrant Funko Pop <br> figures on our specialized platform.</p>
-            
-            <button>
-                <span class="button_top"> Browse <i class="fa-solid fa-arrow-right"></i> </span>
-            </button>
-        </div>
-        <div class="wrapper2" data-aos="fade-up">
-            <img src="/images/main.png" alt="">
-        </div>
-    </div>
-    
-    <div class="featured">
-        <h2>Featured Items</h2>
-        <div class="parent-container">
-            <% featuredItems.forEach(function(item) { %>
-                <div class="cards" data-aos="fade-up">
-                    <img src="<%= item.image %>" alt="">
-                    <hr>
-                    <p><%= item.title %></p>
-                    <p>$<%= item.price %></p>
-                    <div class="rating">
-                        <% for(let i = 0; i < Math.floor(item.rating); i++) { %>
-                            <i class="fa-solid fa-star"></i>
-                        <% } %>
-                        <% if(item.rating % 1 !== 0) { %>
-                            <i class="fa-regular fa-star-half-stroke"></i>
-                        <% } %>
-                        <% for(let i = Math.ceil(item.rating); i < 5; i++) { %>
-                            <i class="fa-regular fa-star"></i>
-                        <% } %>
-                    </div>
-                    <button class="CartBtn">
-                        <span class="IconContainer"> 
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)" class="cart"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg>
-                        </span>
-                        <p class="text">Add to Cart</p>
-                    </button>
-                </div>
-            <% }); %>
-        </div>
-    </div>
-
-    <div class="exclusive-collections">
-        <div class="what-if">
-            <img src="/images/what-if.png">
-            <img class="what-if-logo" src="/images/EXCLUSIVE.png">
+    <div class="about-us">
+        <img src="/images/avengers_logo.png" alt="Avengers Logo" class="avengers-logo">
+        <div class="about-text" data-aos="fade-left">
+            <h2>About Marvelpop</h2>
             <p>
-                <b>Unlock the Marvel Multiverse: <br>Grab Your What-If Funko Pop Before It’s Gone!</b>
+                At MarvelPop, we are passionate fans of the Marvel Universe, just like you. Our journey began with a simple idea: to create a haven where fellow Marvel fans can find exclusive and rare Funko Pop figures of their favorite characters. Whether you're a fan of the Avengers, the X-Men, or the Guardians of the Galaxy, we’ve got something special for you.
             </p>
-            <a href="">Shop Collection</a>
         </div>
     </div>
 
-    <div class="review-collections">
-        <h2>Marvelous reviews from our customers.</h2>
-            <div class="reviews">
-                <% reviews.forEach(review => { %>
-                    
-                  <div class="review-card" data-aos="fade-up">
-                    <img src="<%= review.imageUrl %>" alt="<%= review.name %>">
-                    <h3><%= review.name %></h3>
-                    <p><%= review.text %></p>
-                  </div>
-                <% }); %>
-              </div>
+    <div class="mission">
+        <div class="mission-text">
+            <h2>Our mission</h2>
+            <p>
+                Our mission is to bring the Marvel Universe to life through our curated collection of Funko Pop figures. We are dedicated to providing our customers with the highest quality products and an exceptional shopping experience. Each Funko Pop in our collection is carefully selected to ensure it meets the expectations of collectors and fans alike.
+            </p>
+        </div>
+        <img src="/images/marvel-group.png" alt="All marvel character group photo" class="marvel-group">
     </div>
-
 
 
     <hr>
@@ -120,7 +70,7 @@
         <div class="about">
             <h2>About MarvelPop</h2>
             <ul>
-                <li><a href="/about">About us</a></li>
+                <li><a href="about-us.html">About us</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="/contact">Contact us</a></li>
                 <li><a href="careers.html">Careers</a></li>

@@ -16,18 +16,20 @@
     }
 
     .card {
-        width: 220px; /* Adjust card width */
-        height: auto; /* Let height adjust automatically */
-        margin-right: 0; /* Reset margin-right */
-        margin-top: 20px; /* Adjust margin-top */
+        width: 220px; 
+        height: auto; 
+        margin-right: 0; 
+        margin-top: 20px;
     }
 }
 
 @media (max-width: 768px) {
     .footer {
-        flex-direction: column; /* Stack footer sections vertically */
-        align-items: center; /* Center align items */
-        padding: 10px; /* Reduce padding */
+        flex-direction: column; 
+        align-items: center; 
+        padding: 10px; 
+        transform: translateX(-10px);
+
     }
 
     .footer > div {
@@ -54,15 +56,6 @@
         font-size: 12px; /* Reduce font size */
     }
 
-    .card__form input {
-        padding: 0.5em; /* Reduce padding */
-    }
-
-    .card__form button {
-        padding: 0.5em; /* Reduce padding */
-        font-size: 14px; /* Adjust font size */
-    }
-
     .copyright {
         margin-left: 0; /* Reset margin-left */
         text-align: center; /* Center align text */
@@ -81,48 +74,42 @@
     .footer{
         display: block;
         height: 280px;
+        transform: translateX(-15px);
     }
     .footer > div {
-        
-        padding: 10px 5px; /* Reduce padding */
+        padding: 10px 5px;
     }
 
     .customer-care img {
-        width: 150px; /* Further reduce image size */
+        width: 150px; 
     }
 
     .card {
-        width: 100%; /* Full width for smallest screens */
-        padding: 10px; /* Reduce padding */
+        width: 100%;
     }
 
     .card__title {
-        font-size: 18px; /* Reduce font size */
+        font-size: 18px; 
     }
 
     .card__content {
-        font-size: 11px; /* Reduce font size */
-    }
-
-    .card__form input {
-        padding: 0.4em; /* Reduce padding */
+        font-size: 13px; 
     }
 
     .card__form button {
-        padding: 0.4em; /* Reduce padding */
-        font-size: 12px; /* Adjust font size */
+        font-size: 12px; 
     }
 
     .social-links, .social-links2{
-        margin-left: 30vw;
+        margin-left: 34vw;
     }
     .connect-with-us img{
-        margin-left: 23vw;
+        margin-left: 25vw;
 
     }
 
     .copyright{
-        transform: translateY(85vh);
+        transform: translateY(92vh);
         margin-bottom: 20px;
     }
 

@@ -1,0 +1,50 @@
+.about-us, .mission{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 90px;
+}
+@keyframes rotate3D {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+.avengers-logo{
+    width: 230px; 
+    height: 230px;
+    animation: rotate3D 5s linear infinite;
+    transform-style: preserve-3d;
+    margin-left: 14vw;
+}
+.about-text{
+    width: 800px;
+    height: 200px;
+    margin-left: 15vw;
+    margin-right: 5vw;
+    text-align: justify;
+    line-height: 35px;
+}
+.about-text h2{
+    margin-bottom: 20px;
+}
+.mission-text h2{
+    margin-bottom: 20px;
+}
+.marvel-group{
+    width: 50vw; 
+    height: 20vw;
+    margin: 4vw 5vw 0 1vw;
+
+}
+.mission-text{
+    width: 800px;
+    height: 200px;
+    margin-left: 10vw;
+    margin-right: 5vw;
+    text-align: justify;
+    line-height: 35px;
+}
+

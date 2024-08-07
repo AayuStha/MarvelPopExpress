@@ -97,6 +97,7 @@ hr{
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateX(-5px) !important;
 }
 .wrapper1{
     width: 50%;

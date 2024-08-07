@@ -57,6 +57,7 @@
 .form button {
     width: 120px;
     height: 60px;
+    transform: translateY(-30px);
     border: 1px solid black;
     border-radius: 16px;
     display: flex;
