@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <a href="/" class="back-home"><i class="fas fa-arrow-left"></i> Back Home</a>
+    <div class="admin-container">
+        <h1>Admin Dashboard</h1>
+
+        <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Product Name" required>
+        <input type="number" name="price" placeholder="Price" required>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <input type="file" name="imageFile" required>
+        <label for="exclusive">Exclusive:</label>
+        <select name="exclusive" required>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <label for="rating">Rating:</label>
+        <select name="rating" required>
+            <option value="1">★☆☆☆☆</option>
+            <option value="2">★★☆☆☆</option>
+            <option value="3">★★★☆☆</option>
+            <option value="4">★★★★☆</option>
+            <option value="5">★★★★★</option>
+        </select>
+        <button type="submit">Add Product</button>
+        </form>
+    </div>
+    <div class="products-container">
+        <h2>Products</h2>
+        <ul>
+            <% products.forEach(product => { %>
+            <li>
+                <img src="<%= product.imageUrl %>" alt="<%= product.name %>" width="100">
+                <p><strong>Name:</strong> <%= product.name %></p>
+                <p><strong>Price:</strong> <%= product.price %></p>
+                <p><strong>Description:</strong> <%= product.description %></p>
+                <form action="/admin/delete-product/<%= product.id %>" method="post">
+                <button type="submit">Delete</button>
+                </form>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>

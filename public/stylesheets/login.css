@@ -1,0 +1,124 @@
+:root{
+    --primary-color: #000000;
+    --hover-color: #073a63;
+    --grey-color: #858080;
+}
+
+body{
+    background-color: #f7f7f7;
+    height: 85vh;
+    margin: 0;
+}
+@media (max-width: 480px) {
+    body{
+        margin-left: 40px;
+    }
+}
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 300px;
+    height: auto;
+    margin: 40px 0 40px 0;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.input-group label {
+    margin-right: 10px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 10px 0;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.forgot-password:hover{
+    text-decoration: none;
+    color: var(--hover-color);
+}
+
+.login-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transform: translateY(-60px);
+    margin-bottom: 20px;
+}
+
+.login-button:hover {
+    background-color: var(--hover-color);
+}
+
+#p {
+    margin: 10px 0;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.social-login img{
+    border-radius: 50%;
+    color: white;
+    display: inline-block;
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    padding: 12px;
+    gap: 10px;
+    text-decoration: none;
+    filter: grayscale(1);
+}
+
+.social-login img:hover{
+    filter: grayscale(0);
+}
+
+.signup-link {
+    color: #007bfc;
+    text-decoration: none;
+}
+
+.signup-link:hover, .forgot-password:hover {
+    text-decoration: underline;
+}

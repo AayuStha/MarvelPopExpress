@@ -16,12 +16,24 @@
         <a href="/"><b>MarvelPopExpress</b></a>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
+                <li><a href="/" id="hover">Home</a></li>
+                <li><a href="/products" id="hover">Products</a></li>
+                <li><a href="/about" id="hover">About</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropbtn">Account <i class="fa-solid fa-caret-down"></i> </a>
+                  <div class="dropdown-content">
+                    <a href="/login">Login</a>
+                    <a href="/signup">Signup</a>
+                  </div>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropbtn">More <i class="fa-solid fa-caret-down"></i></a>
+                  <div class="dropdown-content">
+                    <a href="/contact">Contact</a>
+                    <a href="/faq">FAQ</a>
+                  </div>
+                </li>
+              </ul>
         </nav>
         <div class="socials">
             <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
@@ -38,7 +50,7 @@
 
             <p>Explore and collect iconic Marvel heroes in vibrant Funko Pop <br> figures on our specialized platform.</p>
             
-            <button>
+            <button id="browseButton">
                 <span class="button_top"> Browse <i class="fa-solid fa-arrow-right"></i> </span>
             </button>
         </div>
@@ -49,7 +61,7 @@
     
     <div class="featured">
         <h2>Featured Items</h2>
-        <div class="parent-container">
+        <div class="parent-container" id="parent-container">
             <% featuredItems.forEach(function(item) { %>
                 <div class="cards" data-aos="fade-up">
                     <img src="<%= item.image %>" alt="">
@@ -158,6 +170,38 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+
+        document.getElementById('browseButton').addEventListener('click', function() {
+            window.location.href = '/products';
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropbtn = document.querySelector('.dropbtn');
+            const dropdownContent = document.querySelector('.dropdown-content');
+
+            dropbtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // when clicking outside close dropdown 
+            document.addEventListener('click', function(event) {
+                if (!dropbtn.contains(event.target) && !dropdownContent.contains(event.target)) {
+                    dropdownContent.style.display = 'none';
+                }
+            });
+
+            // alignment adjustment
+            window.addEventListener('resize', function() {
+                if (window.innerWidth < 768) {
+                    dropdownContent.style.right = '0'; // Align right for small screens
+                } else {
+                    dropdownContent.style.right = ''; // Reset for larger screens
+                }
+            });
+        });
+
     </script>
 </body>
 </html>

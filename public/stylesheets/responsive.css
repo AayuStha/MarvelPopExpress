@@ -177,8 +177,11 @@
 @media (max-width: 480px) {
     body{
         overflow-x: hidden;
-        transform: translateX(-18px);
+        transform: translateX(-23px);
 
+    }
+    .header{
+        transform: translateX(-8px);
     }
     .header > a {
         font-size: 25px;
@@ -194,6 +197,12 @@
 
     .wrapper1 p {
         font-size: 14px;
+    }
+    nav ul li .dropdown-content{
+        right:0;
+    }
+    #parent-container{
+        transform: translateX(-10px);
     }
     .socials{
         margin-left: 120px;

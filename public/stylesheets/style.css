@@ -44,11 +44,47 @@ nav ul {
     list-style: none; 
     padding: 0; 
     transition: transform 0.3s ease;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+  
+nav ul li {
+    float: left;
 }
 
-.hamburger {
+nav ul li a.dropbtn {
+    display: inline-block;
+    text-align: center;
+}
+
+nav ul li.dropdown {
+    display: inline-block;
+}
+
+nav ul li .dropdown-content {
     display: none;
-  }
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    height: 98px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+
+.dropdown-content a {
+    color: var(--primary-color) !important;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+nav ul li.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 nav ul a {
     font-size: 18px;
@@ -56,13 +92,10 @@ nav ul a {
     color: var(--primary-color);
     display: inline-block;
     position: relative;
+    white-space: nowrap;
 }
 
-nav ul a :hover{
-    color: var(--hover-color);
-}
-
-nav ul a::after {
+nav ul a::after, #hover::after {
     content: '';
     position: absolute;
     width: 0;
@@ -73,7 +106,7 @@ nav ul a::after {
     transition: width 0.3s ease; 
 }
 
-nav ul a:hover::after {
+nav ul a:hover::after, #hover:hover::after {
     width: 100%;
 }
 
@@ -165,6 +198,7 @@ button:active .button_top {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    transform: translateX(-40px);
 }
 .cards{
     width: calc(33.33% - 40px);
