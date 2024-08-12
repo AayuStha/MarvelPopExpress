@@ -1,124 +1,143 @@
-/* General Styles */
-body {
-    background-color: #f7f7f7;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
+/* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Admin Wrapper */
+.admin-wrapper {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes rotate3D {
+  from {
+      transform: rotateY(0deg);
   }
-  
-  .admin-container, .products-container {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    width: 90%;
-    max-width: 600px;
-    margin: 20px auto;
-    text-align: center;
+  to {
+      transform: rotateY(360deg);
   }
-  
-  .back-home {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: #005bb5;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-  }
-  
-  .back-home:hover {
-    background-color: #003b80;
-  }
-  
-  h1, h2 {
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    margin-bottom: 20px;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  textarea,
-  input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  
-  button {
-    background-color: #007bfc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #005bb5;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    background: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px 0;
-    padding: 20px;
-    text-align: left;
-  }
-  
-  li img {
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  form button {
-    background-color: #ff4d4d;
-  }
-  
-  form button:hover {
-    background-color: #ff1a1a;
-  }
-  
-  textarea {
-    resize: vertical;
-    height: 80px;
-  }
-  
-  .admin-container h2, .products-container h2 {
-    margin-top: 30px;
-  }
-  
-  strong {
-    color: #005bb5;
-  }
-  
-  @media (max-width: 600px) {
-    .admin-container, .products-container {
-      width: 95%;
-      padding: 20px;
-    }
-  
-    li {
-      padding: 15px;
-    }
-  }
+}
+
+nav img{
+  width: 7vw;
+  height: 15vh;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  animation: rotate3D 5s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #444;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.add-product-form, .products-container {
+  margin-bottom: 40px;
+}
+
+.add-product-form input, .add-product-form textarea, .add-product-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.add-product-form button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.add-product-form button:hover {
+  background-color: #218838;
+}
+
+.products-container ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products-container li {
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  width: 280px;
+}
+
+.products-container img {
+  display: block;
+  margin: 0 auto 10px;
+  height: 15vh;
+  width: 10vw;
+  margin-bottom: 30px;
+
+}
+
+.products-container button {
+  margin-top: 20px;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.products-container button:hover {
+  background-color: #c82333;
+}
+.products-container ul li p{
+  margin-bottom: 12px;
+}
+
+#edit{
+  background-color: #528ce3;
+}
+#delete{
+  background-color: #c82333;
+
+}
+
+#button{
+  display: flex;
+  gap: 15px;
+}

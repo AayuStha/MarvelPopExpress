@@ -2,15 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 const adminCredentials = {
-  email: 'admin@example.com',
-  password: 'admin123'
+  email: 'aayush',
+  password: 'aayush'
 };
 
 router.post('/login', (req, res) => {
   const { username, password } = req.body;  if (username === adminCredentials.email && password === adminCredentials.password) {
     return res.redirect('/admin');
   } else {
-    return res.redirect('/login?error=Invalid%20credentials');
+    return res.render('login', { alertMessage: 'Invalid Credentials' });
   }
 });
 

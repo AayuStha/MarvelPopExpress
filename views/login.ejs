@@ -48,6 +48,11 @@
     <div class="main">
         <div class="login-container">
             <h1>Login</h1>
+            <% if (typeof alertMessage !== 'undefined') { %>
+                <script>
+                    alert("<%= alertMessage %>");
+                </script>
+            <% } %>
             <form action="/login" method="post">
                 <div class="input-group">
                     <label for="username">

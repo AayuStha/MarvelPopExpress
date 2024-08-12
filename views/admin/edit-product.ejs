@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="/admin/users"><i class="fas fa-users"></i> Users</a></li>
+                <li><a href="/admin/products"><i class="fas fa-boxes"></i> Products</a></li>
+                <li><a href="/admin/orders"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Edit Product</h1>
+
+            <!-- Edit Product Form -->
+            <div class="add-product-form">
+                <form action="/admin/edit-product/<%= id %>" method="post" enctype="multipart/form-data">
+                    <input type="text" name="name" value="<%= product.name %>" placeholder="Product Name" required>
+                    <input type="number" name="price" value="<%= product.price %>" placeholder="Price" required>
+                    <textarea name="description" placeholder="Description" required><%= product.description %></textarea>
+                    <input type="file" name="imageFile">
+                    <label for="exclusive">Exclusive:</label>
+                    <select name="exclusive" required>
+                        <option value="true" <%= product.exclusive === 'true' ? 'selected' : '' %>>Yes</option>
+                        <option value="false" <%= product.exclusive === 'false' ? 'selected' : '' %>>No</option>
+                    </select>
+                    <label for="rating">Rating:</label>
+                    <select name="rating" required>
+                        <option value="1" <%= product.rating == '1' ? 'selected' : '' %>>★☆☆☆☆</option>
+                        <option value="2" <%= product.rating == '2' ? 'selected' : '' %>>★★☆☆☆</option>
+                        <option value="3" <%= product.rating == '3' ? 'selected' : '' %>>★★★☆☆</option>
+                        <option value="4" <%= product.rating == '4' ? 'selected' : '' %>>★★★★☆</option>
+                        <option value="5" <%= product.rating == '5' ? 'selected' : '' %>>★★★★★</option>
+                    </select>
+                    <button type="submit">Update Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

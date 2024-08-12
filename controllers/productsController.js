@@ -6,5 +6,5 @@ exports.getProductsPage = async (req, res) => {
     const productsRef = ref(database, 'products');
     const snapshot = await get(productsRef);
     const products = snapshot.val() || {};
-    res.render('products', { products: Object.keys(products).map(key => ({ id: key, ...products[key] })) });
+    res.render('allproducts', { products: Object.keys(products).map(key => ({ id: key, ...products[key] })) });
 };

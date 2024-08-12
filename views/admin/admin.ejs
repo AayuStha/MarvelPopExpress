@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <img src="/images/avengers_logo.png" alt="Avengers logo">
+            <hr>
+            <br>
+            <ul>
+                <li><a href="/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="/admin/users"><i class="fas fa-users"></i> Users</a></li>
+                <li><a href="/admin/products"><i class="fas fa-boxes"></i> Products</a></li>
+                <li><a href="/admin/orders"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li><a href="/"><i class="fa-solid fa-arrow-left"></i> Back Home</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <h1>Admin Dashboard</h1>
+            <br>
+            <hr>
+            <br>
+            <div class="products-container">
+                <h2>All Products</h2>
+                <br>
+                <ul>
+                    <% products.forEach(product => { %>
+                    <li>
+                        <img src="<%= product.imageUrl %>" alt="<%= product.name %>" width="100">
+                        <p><strong>Name:</strong> <%= product.name %></p>
+                        <p><strong>Price:</strong> <%= product.price %></p>
+                        <p><strong>Description:</strong> <%= product.description %></p>
+                        <div id="button">
+                            <a href="/admin/edit-product/<%= product.id %>">
+                                <button type="button" id="edit">Edit</button>
+                            </a>
+                            <form action="/admin/delete-product/<%= product.id %>" method="post">
+                                <button type="submit" id="delete">Delete</button>
+                            </form>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

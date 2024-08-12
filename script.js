@@ -13,9 +13,7 @@ const { ref: storageRef, uploadBytes, getDownloadURL } = require('firebase/stora
 const adminRoutes = require('./routes/admin');
 const productRoutes = require('./routes/products');
 const contactRoutes = require('./routes/contact');
-
 const loginRoute = require('./routes/login');
-const adminRoute = require('./routes/admin');
 
 const app = express();
 const server = http.createServer(app);
@@ -27,7 +25,7 @@ app.use(express.static("public"));
 
 app.use('/admin', adminRoutes);
 app.use('/', loginRoute);
-app.use('/products', productRoutes);
+app.use('/allproducts', productRoutes);
 app.use('/contact', contactRoutes);
 
 app.set("view engine", "ejs");
@@ -42,10 +40,6 @@ app.get("/", (req, res) => {
 app.get("/about", (req, res) => {
   res.render('about');
 });
-
-app.get("/products", (req, res) => {
-    res.render('products');
-  });
 
 app.get('/login', (req, res) => {
     res.render('login');
