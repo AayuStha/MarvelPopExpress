@@ -11,22 +11,18 @@ const { database, ref } = require('./config/firebase'); // Import database and r
 
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-// Determine if the app is running in production or development
 const isProduction = process.env.NODE_ENV === 'production';
 const callbackURL = isProduction ? process.env.CALLBACK_URL_PROD : process.env.CALLBACK_URL_DEV;
 
-// Passport configuration for Google OAuth
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: callbackURL  // Use the dynamic callback URL
+    callbackURL: callbackURL,
+    scope: ['profile', 'email']
   },
   async function(accessToken, refreshToken, profile, done) {
     try {
-      // Create a reference to the user data in the Realtime Database
       const userRef = ref(database, 'users/' + profile.id);
-
-      // Save user data to Firebase Realtime Database
       await set(userRef, {
         googleId: profile.id,
         displayName: profile.displayName,
@@ -54,7 +50,6 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Middleware
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -63,7 +58,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: isProduction } // Secure cookie only in production
+    cookie: { secure: isProduction }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
