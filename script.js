@@ -55,19 +55,21 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(upload.array());  // for parsing multipart/form-data
+app.use(upload.array());
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // set to true if using HTTPS in production
+    cookie: { secure: true } // set to true if using HTTPS in production
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Define routes
+
 app.get("/", (req, res) => {
-    res.render('index');
+    const featuredItems = require('./data/featured.json');
+    const reviews = require('./data/reviews.json');
+    res.render('index', { featuredItems, reviews });
 });
 
 app.get('/auth/google',
@@ -76,7 +78,7 @@ app.get('/auth/google',
 app.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
-    res.redirect('/dashboard'); // Redirect to the dashboard after successful login
+    res.redirect('/dashboard'); 
 });
 
 app.get("/login", (req, res) => {
