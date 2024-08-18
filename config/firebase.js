@@ -1,6 +1,7 @@
 const { initializeApp } = require('firebase/app');
-const { getDatabase } = require('firebase/database');
+const { getDatabase, ref } = require('firebase/database');
 const { getStorage } = require('firebase/storage');
+const { getAuth } = require('firebase/auth'); 
 require('dotenv').config();
 
 const firebaseConfig = {
@@ -16,8 +17,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Get a reference to the database
+// Get a reference to the services
 const database = getDatabase(app);
 const storage = getStorage(app);
+const auth = getAuth(app);
 
-module.exports = { database, storage };
+module.exports = { database, ref, storage, auth };
