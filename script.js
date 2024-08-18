@@ -8,15 +8,18 @@ const upload = multer({ storage: multer.memoryStorage() });
 const passport = require('passport');
 const session = require('express-session');
 const { database, ref } = require('./config/firebase'); // Import database and ref
-const { set } = require('firebase/database'); // Import the set function from firebase/database
 
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+// Determine if the app is running in production or development
+const isProduction = process.env.NODE_ENV === 'production';
+const callbackURL = isProduction ? process.env.CALLBACK_URL_PROD : process.env.CALLBACK_URL_DEV;
 
 // Passport configuration for Google OAuth
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "/auth/google/callback"
+    callbackURL: callbackURL  // Use the dynamic callback URL
   },
   async function(accessToken, refreshToken, profile, done) {
     try {
@@ -55,12 +58,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(upload.array());
+app.use(upload.array());  // for parsing multipart/form-data
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true } // set to true if using HTTPS in production
+    cookie: { secure: isProduction } // Secure cookie only in production
 }));
 app.use(passport.initialize());
 app.use(passport.session());
