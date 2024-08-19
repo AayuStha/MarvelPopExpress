@@ -9,18 +9,27 @@ const callbackURL = isProduction ? process.env.CALLBACK_URL_PROD : process.env.C
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: callbackURL,  // Use the dynamic callback URL
+    callbackURL: callbackURL,
+    scope: ['profile', 'email']
   },
   async function(accessToken, refreshToken, profile, done) {
+    console.log('Google profile:', profile); // Log the profile data
     try {
-      // Here, you can handle the Google OAuth response, such as saving user data
-      // e.g., save to database or perform other actions with the user's profile
+      const userRef = ref(database, 'users/' + profile.id);
+      await set(userRef, {
+        googleId: profile.id,
+        displayName: profile.displayName,
+        email: profile.emails[0].value,
+        photoUrl: profile.photos[0].value
+      });
       done(null, profile);
     } catch (error) {
+      console.error('Error saving user to Firebase:', error);
       done(error, null);
     }
   }
 ));
+
 
 passport.serializeUser((user, done) => {
     done(null, user);

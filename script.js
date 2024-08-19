@@ -81,11 +81,13 @@ app.get("/", (req, res) => {
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  (req, res) => {
-    res.redirect('/dashboard'); 
-});
+  app.get('/auth/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    (req, res) => {
+      console.log('Google authentication successful. Redirecting to /dashboard.');
+      res.redirect('/dashboard');
+  });
+  
 
 app.get("/login", (req, res) => {
     res.render('login');
