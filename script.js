@@ -7,23 +7,12 @@ const multer = require('multer');
 const upload = multer({ storage: multer.memoryStorage() });
 const passport = require('passport');
 const session = require('express-session');
-const RedisStore = require('connect-redis')(session);
-const redis = require('redis');
 const { database, ref } = require('./config/firebase');
 const { set } = require('firebase/database');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const isProduction = process.env.NODE_ENV === 'production';
 const callbackURL = isProduction ? process.env.CALLBACK_URL_PROD : process.env.CALLBACK_URL_DEV;
-
-const redisClient = redis.createClient({
-  host: 'localhost',  // Adjust this if Redis is running on a different host
-  port: 6379
-});
-
-redisClient.on('error', (err) => {
-  console.error('Redis error: ', err);
-});
 
 // Passport configuration for Google OAuth
 passport.use(new GoogleStrategy({
@@ -66,13 +55,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(upload.array());  // for parsing multipart/form-data
 
-// Configure session middleware to use Redis store
+// Configure session middleware to use the default MemoryStore
 app.use(session({
-    store: new RedisStore({ client: redisClient }),
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: isProduction }
+    cookie: { secure: isProduction }  // Set to true in production for HTTPS
 }));
 
 app.use(passport.initialize());
@@ -91,7 +79,7 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
     console.log('Google authentication successful. Redirecting to /dashboard.');
-    res.redirect('/dashboard'); 
+    res.render('dashboard', { user: req.user.displayName });
 });
 
 app.get("/login", (req, res) => {
