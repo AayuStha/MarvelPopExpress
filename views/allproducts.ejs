@@ -25,37 +25,7 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <a href="/"><b>MarvelPopExpress</b></a>
-        <nav>
-            <ul>
-                <li><a href="/" id="hover">Home</a></li>
-                <li><a href="/products" id="hover">Products</a></li>
-                <li><a href="/about" id="hover">About</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropbtn">Account <i class="fa-solid fa-caret-down"></i> </a>
-                  <div class="dropdown-content">
-                    <a href="/login">Login</a>
-                    <a href="/signup">Signup</a>
-                  </div>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropbtn">More <i class="fa-solid fa-caret-down"></i></a>
-                  <div class="dropdown-content">
-                    <a href="/contact">Contact</a>
-                    <a href="/faq">FAQ</a>
-                  </div>
-                </li>
-              </ul>
-        </nav>
-        <div class="socials">
-            <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-    </div>
-    <br>
-    <hr id="hr">
+    <%- include('./partials/nav.ejs') %>
         
     <div class="featured">
         <h2>All Products</h2>
@@ -79,56 +49,8 @@
         </div>
     </div>
 
-    <hr>
-    <div class="footer">
-        <div class="customer-care">
-            <h2>Customer Care</h2>
-            <ul>
-                <li><a href="help-center.html">Help Center</a></li>
-                <li><a href="how-to.html">How to</a></li>
-                <li><a href="returns-refunds.html">Returns & Refunds</a></li>
-                <li><a href="contact-us.html">Contact us</a></li>
-            </ul>
-        </div>
+    <%- include('./partials/footer.ejs') %>
 
-        <div class="about">
-            <h2>About MarvelPop</h2>
-            <ul>
-                <li><a href="/about">About us</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="/contact">Contact us</a></li>
-                <li><a href="careers.html">Careers</a></li>
-            </ul>
-        </div>
-        
-        <div class="connect-with-us">
-            <h2>Connect With us</h2>
-            <div class="social-links">
-              <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
-              <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://wa.me" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-            <div class="social-links2">
-              <a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-              <a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="https://www.tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-            <img src="/images/store.png" alt="Playstore and appstore">
-        </div>
-        <div class="card">
-            <span class="card__title">MarvelPop Newsletter</span>
-            <p class="card__content">Join our mailing list and be the first to hear about new releases, upcoming events, and more!</p>
-            <div class="card__form">
-                <input placeholder="Your Email" type="text">
-                <button class="sign-up"> Sign up</button>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <h4><a href="/">MarvelPopExpress</a></h4><br>
-        <h5>Heros POP, Collect, Marvel On</h5><br>
-        <h6>&copy; <b>2024</b> MarvelPopExpress. <b>All Rights Reserved</b></h6>
-    </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();

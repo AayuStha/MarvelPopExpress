@@ -10,6 +10,7 @@ const session = require('express-session');
 const { database, ref } = require('./config/firebase');
 const { set } = require('firebase/database');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const { refreshAccessToken } = require('./config/passport-setup');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const callbackURL = isProduction ? process.env.CALLBACK_URL_PROD : process.env.CALLBACK_URL_DEV;
@@ -46,6 +47,11 @@ passport.deserializeUser((user, done) => {
     done(null, user);
 });
 
+const adminRoutes = require('./routes/admin');
+const productRoutes = require('./routes/products');
+const contactRoutes = require('./routes/contact');
+const loginRoute = require('./routes/login');
+
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -66,6 +72,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/admin', adminRoutes);
+app.use('/', loginRoute);
+app.use('/allproducts', productRoutes);
+app.use('/contact', contactRoutes);
+
 app.get("/", (req, res) => {
     const featuredItems = require('./data/featured.json');
     const reviews = require('./data/reviews.json');
@@ -75,23 +86,29 @@ app.get("/", (req, res) => {
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  (req, res) => {
-    console.log('Google authentication successful. Redirecting to /dashboard.');
-    res.render('dashboard', { user: req.user.displayName });
-});
+  app.get('/auth/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/login?error=authFailed' }),
+    (req, res) => {
+      console.log('Google authentication successful. Redirecting to /dashboard.');
+      if (req.query.error || !req.user) {
+        return res.redirect('/login');
+      }
+  
+      res.redirect('/dashboard'); 
+  });
 
 app.get("/login", (req, res) => {
-    res.render('login');
+  const error = req.query.error;
+  res.render('login', { error: error });
+
 });
 
 app.get("/dashboard", (req, res) => {
-    if (req.isAuthenticated()) { 
-        res.render('dashboard', { user: req.user.displayName });
-    } else {
-        res.redirect('/login'); 
-    }
+  if (req.isAuthenticated()) { 
+      res.render('dashboard', { user: req.user.displayName });
+  } else {
+      res.redirect('/auth/google');
+  }
 });
 
 app.get("/about", (req, res) => {

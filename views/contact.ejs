@@ -4,149 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarvelPop - Contact</title>
-
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/responsive.css">
     <link rel="stylesheet" href="/stylesheets/contact.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <a href="/"><b>MarvelPopExpress</b></a>
-        <nav>
-            <ul>
-                <li><a href="/" id="hover">Home</a></li>
-                <li><a href="/products" id="hover">Products</a></li>
-                <li><a href="/about" id="hover">About</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropbtn">Account <i class="fa-solid fa-caret-down"></i> </a>
-                  <div class="dropdown-content">
-                    <a href="/login">Login</a>
-                    <a href="/signup">Signup</a>
-                  </div>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropbtn">More <i class="fa-solid fa-caret-down"></i></a>
-                  <div class="dropdown-content">
-                    <a href="/contact">Contact</a>
-                    <a href="/faq">FAQ</a>
-                  </div>
-                </li>
-              </ul>
-        </nav>
-        <div class="socials">
-            <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-    </div>
-    <br>
-    <hr id="hr">
+  <%- include('./partials/nav.ejs') %>
 
-    <div class="container">
-        <div class="contact-image">
-            <img src="/images/loki.png" alt="">
-        </div>
-        <div class="form">
-            <h1>Contact Us</h1>
-            
-            <form action="/contact/submit-contact" method="POST">
-                <div class="row">
-                  <div class="column">
-                    <label>Name</label>
-                    <input type="text" name="name" placeholder="Enter your name..." required>
-                  </div>
-                  <div class="column">
-                    <label>Email Address</label>
-                    <input type="email" name="email" placeholder="Your email address..." required>
-                  </div>
+  <div class="container">
+      <div class="contact-image">
+          <img src="/images/loki.png" alt="">
+      </div>
+      <div class="form">
+          <h1>Contact Us</h1>
+          
+          <form action="/contact/submit-contact" method="POST">
+              <div class="row">
+                <div class="column">
+                  <label>Name</label>
+                  <input type="text" name="name" placeholder="Enter your name..." required>
                 </div>
-                <div class="row">
-                  <div class="column">
-                    <label>Subject</label>
-                    <input type="text" name="subject" placeholder="Enter Subject..." required>
-                  </div>
-                  <div class="column">
-                    <label>Enquiry Type</label>
-                    <select class="select column" name="enquiryType" required>
-                      <option class="column" value="general">General Enquiry</option>
-                      <option class="column" value="order">Order Enquiry</option>
-                      <option class="column" value="payment">Payment Enquiry</option>
-                      <option class="column" value="shipping">Shipping Enquiry</option>
-                      <option class="column" value="returns">Returns Enquiry</option>
-                    </select>
-                  </div>
+                <div class="column">
+                  <label>Email Address</label>
+                  <input type="email" name="email" placeholder="Your email address..." required>
                 </div>
-                <label>Your Message</label>
-                <textarea name="message" placeholder="Enter your message..." required></textarea>
-                <% if (message) { %>
-                    <p style="color: green;"><%= message %></p>
-                <% } %>
-                <% if (error) { %>
-                    <p style="color: red;"><%= error %></p>
-                <% } %>
-                <button type="submit">Submit</button>
-              </form>
-        </div>
-    </div>
+              </div>
+              <div class="row">
+                <div class="column">
+                  <label>Subject</label>
+                  <input type="text" name="subject" placeholder="Enter Subject..." required>
+                </div>
+                <div class="column">
+                  <label>Enquiry Type</label>
+                  <select class="select column" name="enquiryType" required>
+                    <option class="column" value="general">General Enquiry</option>
+                    <option class="column" value="order">Order Enquiry</option>
+                    <option class="column" value="payment">Payment Enquiry</option>
+                    <option class="column" value="shipping">Shipping Enquiry</option>
+                    <option class="column" value="returns">Returns Enquiry</option>
+                  </select>
+                </div>
+              </div>
+              <label>Your Message</label>
+              <textarea name="message" placeholder="Enter your message..." required></textarea>
+              <% if (message) { %>
+                  <p style="color: green;"><%= message %></p>
+              <% } %>
+              <% if (error) { %>
+                  <p style="color: red;"><%= error %></p>
+              <% } %>
+              <button type="submit">Submit</button>
+            </form>
+      </div>
+  </div>
 
-    <hr>
-    <div class="footer">
-        <div class="customer-care">
-            <h2>Customer Care</h2>
-            <ul>
-                <li><a href="help-center.html">Help Center</a></li>
-                <li><a href="how-to.html">How to</a></li>
-                <li><a href="returns-refunds.html">Returns & Refunds</a></li>
-                <li><a href="contact-us.html">Contact us</a></li>
-            </ul>
-        </div>
+  <%- include('./partials/footer.ejs') %>
 
-        <div class="about">
-            <h2>About MarvelPop</h2>
-            <ul>
-                <li><a href="about-us.html">About us</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="/contact">Contact us</a></li>
-                <li><a href="careers.html">Careers</a></li>
-            </ul>
-        </div>
-        
-        <div class="connect-with-us">
-            <h2>Connect With us</h2>
-            <div class="social-links">
-              <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
-              <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://wa.me" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-            <div class="social-links2">
-              <a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-              <a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="https://www.tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-            <img src="/images/store.png" alt="Playstore and appstore">
-        </div>
-        <div class="card">
-            <span class="card__title">MarvelPop Newsletter</span>
-            <p class="card__content">Join our mailing list and be the first to hear about new releases, upcoming events, and more!</p>
-            <div class="card__form">
-                <input placeholder="Your Email" type="text">
-                <button class="sign-up"> Sign up</button>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <h4><a href="/">MarvelPopExpress</a></h4><br>
-        <h5>Heros POP, Collect, Marvel On</h5><br>
-        <h6>&copy; <b>2024</b> MarvelPopExpress. <b>All Rights Reserved</b></h6>
-    </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+      AOS.init();
+  </script>
     </body>
 </html>
