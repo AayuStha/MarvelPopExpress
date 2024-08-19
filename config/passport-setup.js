@@ -1,30 +1,22 @@
 const passport = require('passport');
-const { firebase, auth } = require('./config/firebase');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+require('dotenv').config();
 
-// Use passport with Google OAuth strategy
+// Determine if the app is running in production or development
+const isProduction = process.env.NODE_ENV === 'production';
+const callbackURL = isProduction ? process.env.CALLBACK_URL_PROD : process.env.CALLBACK_URL_DEV;
+
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3001/auth/google/callback"
+    callbackURL: callbackURL,  // Use the dynamic callback URL
   },
-  async (accessToken, refreshToken, profile, done) => {
+  async function(accessToken, refreshToken, profile, done) {
     try {
-      // You can directly use Firebase Auth or save the user data to your Firebase Realtime Database
-      await auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(accessToken));
-
-      // You can also manually save user data to Realtime Database or Firestore
-      const userRef = db.ref('users/' + profile.id);
-      await userRef.set({
-        googleId: profile.id,
-        displayName: profile.displayName,
-        email: profile.emails[0].value,
-        photoUrl: profile.photos[0].value
-      });
-
+      // Here, you can handle the Google OAuth response, such as saving user data
+      // e.g., save to database or perform other actions with the user's profile
       done(null, profile);
     } catch (error) {
-      console.error('Error authenticating user:', error);
       done(error, null);
     }
   }
@@ -37,3 +29,5 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((user, done) => {
     done(null, user);
 });
+
+module.exports = passport;
