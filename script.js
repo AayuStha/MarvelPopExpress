@@ -4,7 +4,7 @@ require('dotenv').config();
 const path = require('path');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const upload = multer({ storage: multer.memoryStorage() });
+// const upload = multer({ storage: multer.memoryStorage() });
 const passport = require('passport');
 const session = require('express-session');
 const { database, ref } = require('./config/firebase');
@@ -52,6 +52,13 @@ const productRoutes = require('./routes/products');
 const contactRoutes = require('./routes/contact');
 const loginRoute = require('./routes/login');
 
+// Configure multer
+const storage = multer.memoryStorage(); // Storing files in memory
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 10 * 1024 * 1024 } // Limit file size to 10 MB
+});
+
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -59,7 +66,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(upload.array());  // for parsing multipart/form-data
+// app.use(upload.array());  // for parsing multipart/form-data
 
 // Configure session middleware to use the default MemoryStore
 app.use(session({

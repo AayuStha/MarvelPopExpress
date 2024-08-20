@@ -42,33 +42,37 @@ exports.getProductsPage = async (req, res) => {
     
 exports.addProduct = async (req, res) => {
     try {
-    console.log("Request Body:", req.body);
-    console.log("Uploaded File:", req.file);
-    const { name, price, description, exclusive, rating } = req.body;
-    const imageFile = req.file;
-    
-    if (!imageFile) {
-    console.error('No file uploaded.');
-    return res.status(400).send('No file uploaded.');
-    }
-    
-    console.log("Uploading to Firebase Storage...");
-    const storageReference = storageRef(storage, `products/${Date.now()}_${imageFile.originalname}`);
-    await uploadBytes(storageReference, imageFile.buffer);
-    const imageUrl = await getDownloadURL(storageReference);
-    console.log("File uploaded, URL:", imageUrl);
-    
-    console.log("Saving product to Firebase Database...");
-    const newProductRef = push(ref(database, 'products'));
-    await set(newProductRef, { name, price, description, imageUrl, exclusive, rating });
-    console.log("Product saved successfully!");
-    
-    res.redirect('/admin');
+        const { name, price, description, exclusive, rating } = req.body;
+        const imageFile = req.file;
+
+        if (!imageFile) {
+            console.error('No file uploaded.');
+            return res.status(400).send('No file uploaded.');
+        }
+
+        // Create a reference to 'products' in Storage and upload the file
+        const storageReference = storageRef(storage, `products/${Date.now()}_${imageFile.originalname}`);
+        await uploadBytes(storageReference, imageFile.buffer);
+        const imageUrl = await getDownloadURL(storageReference);
+
+        // Create a reference in the Database and set the product data
+        const newProductRef = push(ref(database, 'products'));
+        await set(newProductRef, {
+            name, 
+            price, 
+            description, 
+            imageUrl, 
+            exclusive, 
+            rating
+        });
+
+        res.redirect('/admin');
     } catch (error) {
-    console.error('Error adding product details:', error);
-    res.status(500).send('Error adding product.');
+        console.error('Error adding product details:', error);
+        res.status(500).send('Error adding product.');
     }
 };
+
 
 // Get Edit Product Page
 exports.getEditProductPage = async (req, res) => {
