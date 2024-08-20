@@ -101,7 +101,7 @@ app.get('/auth/google',
         return res.redirect('/login');
       }
   
-      res.redirect('/dashboard'); 
+      res.render('dashboard', { user: req.user.displayName });
   });
 
 app.get("/login", (req, res) => {
