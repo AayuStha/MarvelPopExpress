@@ -1,6 +1,5 @@
 const multer = require('multer');
-const { database, storage } = require('../config/firebase');
-const { ref, set, push, get, remove } = require('firebase/database');
+const { database, ref, child, get, set, push, remove } = require('../config/firebase');
 const { ref: storageRef, uploadBytes, getDownloadURL, deleteObject } = require('firebase/storage');
 
 const upload = multer({ storage: multer.memoryStorage() });
@@ -12,11 +11,11 @@ exports.getAdminDashboard = async (req, res) => {
         const snapshot = await get(productsRef);
         const productsData = snapshot.val() || {};
         const products = Object.keys(productsData).map(key => ({
-        id: key,
-        ...productsData[key]
-    }));
-    
-    res.render('admin/admin', { products });
+            id: key,
+            ...productsData[key]
+        }));
+        
+        res.render('admin/admin', { products });
     } catch (error) {
         console.error('Error fetching products', error);
         res.status(500).send('Server Error');
@@ -39,7 +38,7 @@ exports.getProductsPage = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
-    
+
 exports.addProduct = async (req, res) => {
     try {
         const { name, price, description, exclusive, rating } = req.body;
@@ -72,7 +71,6 @@ exports.addProduct = async (req, res) => {
         res.status(500).send('Error adding product.');
     }
 };
-
 
 // Get Edit Product Page
 exports.getEditProductPage = async (req, res) => {
@@ -120,8 +118,6 @@ exports.editProduct = async (req, res) => {
     }
 };
 
-
- 
 // Delete Product
 exports.deleteProduct = async (req, res) => {
     try {
@@ -144,7 +140,26 @@ exports.deleteProduct = async (req, res) => {
     }
 };
 
+// Users 
+exports.showUsers = async (req, res) => {
+    try {
+        const dbRef = ref(database); // Use the imported database instance
+        const snapshot = await get(child(dbRef, 'users')); // Get data from 'users' node
 
+        if (snapshot.exists()) {
+            const usersData = snapshot.val(); // Retrieve data
+            const users = Object.keys(usersData).map(userId => ({
+                id: userId,
+                ...usersData[userId]
+            }));
+            res.render('admin/users', { users });
+        } else {
+            res.render('admin/users', { users: [] }); // No data available
+        }
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        res.status(500).send('Error fetching users');
+    }
+};
 
- 
- exports.upload = upload;
+exports.upload = upload;

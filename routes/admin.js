@@ -11,5 +11,6 @@ router.get('/edit-product/:id', adminController.getEditProductPage); // Edit pro
 router.post('/edit-product/:id', adminController.upload.single('imageFile'), adminController.editProduct); // Edit product route
 router.post('/add-product', adminController.upload.single('imageFile'), adminController.addProduct); // Add product route
 router.post('/delete-product/:id', adminController.deleteProduct); // Delete product route
-
+router.get('/users', adminController.showUsers); // Users Route
+ 
 module.exports = router;

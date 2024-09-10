@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Users</title>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .users-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between cards */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between cards */
+        }
+
+        .user-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%; /* Full width on smaller screens */
+            max-width: 300px; /* Max width for larger screens */
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex; /* Align image and text */
+            align-items: center; /* Center items vertically */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .user-card img {
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-details p {
+            margin: 5px 0;
+        }
+
+        .user-details p strong {
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .user-card {
+                width: 100%; /* Full width on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <img src="/images/avengers_logo.png" alt="Avengers logo">
+            <hr>
+            <br>
+            <ul>
+                <li><a href="/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="/admin/users"><i class="fas fa-users"></i> Users</a></li>
+                <li><a href="/admin/products"><i class="fas fa-boxes"></i> Products</a></li>
+                <li><a href="/admin/orders"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li><a href="/"><i class="fa-solid fa-arrow-left"></i> Back Home</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <h1>Users</h1>
+            <br>
+            <hr>
+            <br>
+            <div class="users-container">
+              <ul>
+                <% users.forEach(user => { %>
+                <li class="user-card">
+                  <div class="user-details">
+                    <img src="<%= user.photoUrl %>" alt="<%= user.displayName %>" width="100">
+                    <p><strong>Name:</strong> <%= user.displayName %></p>
+                    <p><strong>Email:</strong> <%= user.email %></p>
+                  </div>
+                </li>
+                <% }) %>
+              </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
