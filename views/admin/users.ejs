@@ -23,6 +23,7 @@
         }
 
         .user-card {
+            font-size: 14px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -48,6 +49,7 @@
 
         .user-details p {
             margin: 5px 0;
+            margin-top: 15px;
         }
 
         .user-details p strong {
@@ -90,6 +92,7 @@
                     <img src="<%= user.photoUrl %>" alt="<%= user.displayName %>" width="100">
                     <p><strong>Name:</strong> <%= user.displayName %></p>
                     <p><strong>Email:</strong> <%= user.email %></p>
+                    <p><strong>Google ID:</strong> <%= user.googleId %></p>
                   </div>
                 </li>
                 <% }) %>

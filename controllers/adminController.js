@@ -1,6 +1,6 @@
 const multer = require('multer');
 const { database, storage } = require('../config/firebase'); // Ensure firebase is correctly configured in ../config/firebase.js
-const { ref, set, push, get, remove } = require('firebase/database');
+const { ref, set, push, get, remove, child } = require('firebase/database');
 const { ref: storageRef, uploadBytes, getDownloadURL, deleteObject } = require('firebase/storage');
 
 const upload = multer({ storage: multer.memoryStorage() });
