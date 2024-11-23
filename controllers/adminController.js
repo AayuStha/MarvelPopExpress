@@ -1,5 +1,6 @@
 const multer = require('multer');
-const { database, ref, child, get, set, push, remove } = require('../config/firebase');
+const { database, storage } = require('../config/firebase'); // Ensure firebase is correctly configured in ../config/firebase.js
+const { ref, set, push, get, remove } = require('firebase/database');
 const { ref: storageRef, uploadBytes, getDownloadURL, deleteObject } = require('firebase/storage');
 
 const upload = multer({ storage: multer.memoryStorage() });
@@ -139,6 +140,7 @@ exports.deleteProduct = async (req, res) => {
         res.status(500).send('Error deleting product.');
     }
 };
+
 
 // Users 
 exports.showUsers = async (req, res) => {
